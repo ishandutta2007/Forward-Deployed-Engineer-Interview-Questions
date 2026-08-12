@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Accent Gradient for Text & Shapes -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Glowing Effects -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="1" stroke-opacity="0.3" />
+    </pattern>
+
+    <!-- CSS Keyframe Animations for Dynamic Aspect -->
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.05); }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -40; }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      .animated-bg-circle-1 {
+        animation: pulse 6s ease-in-out infinite;
+        transform-origin: 200px 100px;
+      }
+      .animated-bg-circle-2 {
+        animation: pulse 8s ease-in-out infinite 1s;
+        transform-origin: 1000px 260px;
+      }
+      .animated-float {
+        animation: float 4s ease-in-out infinite;
+      }
+      .animated-dash {
+        stroke-dasharray: 8, 8;
+        animation: dash 2s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Card Surface -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" rx="16" fill="url(#grid)" />
+
+  <!-- Dynamic Animated Ambient Glow Circles -->
+  <circle class="animated-bg-circle-1" cx="200" cy="100" r="180" fill="#38bdf8" opacity="0.25" filter="url(#glow)" />
+  <circle class="animated-bg-circle-2" cx="1000" cy="260" r="220" fill="#c084fc" opacity="0.2" filter="url(#glow)" />
+
+  <!-- Border Highlight -->
+  <rect x="2" y="2" width="1196" height="356" rx="14" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- Animated Tech Vector Nodes / Circuit Lines in Background -->
+  <g stroke="url(#accentGrad)" stroke-width="1.5" fill="none" opacity="0.4">
+    <path class="animated-dash" d="M 100,280 L 250,280 L 320,210 L 450,210" />
+    <path class="animated-dash" d="M 1100,80 L 950,80 L 880,150 L 750,150" />
+    <circle cx="250" cy="280" r="4" fill="#38bdf8" />
+    <circle cx="320" cy="210" r="4" fill="#818cf8" />
+    <circle cx="950" cy="80" r="4" fill="#c084fc" />
+    <circle cx="880" cy="150" r="4" fill="#818cf8" />
+  </g>
+
+  <!-- Central Content -->
+  <g class="animated-float">
+    <!-- Top Pill Badge -->
+    <g transform="translate(600, 75)">
+      <rect x="-140" y="-18" width="280" height="36" rx="18" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <circle cx="-110" cy="0" r="5" fill="#10b981" filter="url(#subtleGlow)" />
+      <text x="-95" y="5" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">CURATED INTERVIEW GUIDE</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="155" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+      Forward Deployed Engineer
+    </text>
+    
+    <!-- Subtitle Gradient Accent -->
+    <text x="600" y="200" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-size="24" font-weight="600" fill="url(#accentGrad)" letter-spacing="1">
+      INTERVIEW QUESTIONS &amp; ARCHITECTURE GUIDE
+    </text>
+
+    <!-- Metric / Feature Highlights Badges -->
+    <g transform="translate(600, 260)">
+      <!-- Badge 1 -->
+      <g transform="translate(-240, 0)">
+        <rect x="-80" y="-18" width="160" height="36" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <text x="0" y="5" text-anchor="middle" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">⚡ 140 Questions</text>
+      </g>
+      
+      <!-- Badge 2 -->
+      <g transform="translate(0, 0)">
+        <rect x="-80" y="-18" width="160" height="36" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <text x="0" y="5" text-anchor="middle" fill="#818cf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">🌐 11 Categories</text>
+      </g>
+
+      <!-- Badge 3 -->
+      <g transform="translate(240, 0)">
+        <rect x="-80" y="-18" width="160" height="36" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <text x="0" y="5" text-anchor="middle" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600">🧠 Enterprise &amp; AI</text>
+      </g>
+    </g>
+  </g>
+</svg>
